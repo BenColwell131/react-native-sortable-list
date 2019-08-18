@@ -3,6 +3,23 @@
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm](https://img.shields.io/npm/v/react-native-sortable-list.svg?style=flat)](https://npmjs.com/package/react-native-sortable-list)
 
+### Note: 
+This fork tweaks the library to help with manual row open/closing via `toggleRowActive`. Each row is passed a `moving` prop which can be used to determine whether to close an open row. To use it my implementation looked as follows:
+
+```
+<TouchableWithoutFeedback
+  onLongPress={toggleRowActive}
+  onPressOut={() => {
+    if (active && !moving) {
+      toggleRowActive();
+    }
+  }}
+  delayPressOut={700} // Time from move or release till pressout is called -> need some delay for moving to update
+>
+```
+
+`onPressOut` will be called if a user releases without any movement, or on movement start. This fixes the issue of rows getting stuck in an `active` state.
+
 ### Content
 - [Demo](#demo)
 - [Installation](#installation)
