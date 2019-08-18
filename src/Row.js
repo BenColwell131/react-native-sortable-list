@@ -266,7 +266,7 @@ export default class Row extends Component {
   _onLayout = e => {
     this._layout = e.nativeEvent.layout;
 
-    if (this.props.onLayout) {
+    if (this.props.onLayout && !this._active) {
       this.props.onLayout(e);
     }
   };
