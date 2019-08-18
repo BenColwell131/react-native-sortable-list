@@ -14,7 +14,7 @@ This fork tweaks the library to help with manual row open/closing via `toggleRow
       toggleRowActive();
     }
   }}
-  delayPressOut={700} // Time from move or release till pressout is called -> need some delay for moving to update
+  delayPressOut={700} // Time from move or release till pressout is called.
 >
 ```
 
